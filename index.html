@@ -1,14 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+ <body>
+  <div class="container">
     <header>
-        <h1 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >Form Pendaftaran siswa</h1>
-
+      <h1>Form Pendaftaran Siswa</h1>
+      <p id="stepText">Halaman 1 dari 2 - Data Siswa</p>
     </header>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <div style="font-size:13px;color:var(--muted)">Silakan lengkapi data</div>
+        <div id="progressPercent" style="font-size:13px;color:var(--muted)">0%</div>
+      </div>
+      <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div id="step1" class="card" role="tabpanel">
+      <div class="section-title">Data Siswa</div>
+      <div class="section-desc">Silakan lengkapi data pribadi siswa dengan benar</div>
+
+      <form id="formStudent">
+        <div class="grid">
+          <div>
+            <label>NIS <span class="required">*</span></label>
+            <input name="nis" type="text" placeholder="NIS" required>
+            <div class="error" data-for="nis" style="display:none">NIS wajib diisi</div>
+          </div>
+
+          <div>
+            <label>NISN <span class="required">*</span></label>
+            <input name="nisn" type="text" placeholder="NISN" required>
+            <div class="error" data-for="nisn" style="display:none">NISN wajib diisi</div>
+          </div>
+
+          <div>
+            <label>No. Kartu Keluarga</label>
+            <input name="kk" type="text" placeholder="No. Kartu Keluarga">
+          </div>
+
+          <div>
+            <label>NIK</label>
+            <input name="nik" type="text" placeholder="NIK">
+          </div>
+
+          <div class="full">
+            <label>Nama Lengkap <span class="required">*</span></label>
+            <input name="nama_lengkap" type="text" placeholder="Nama lengkap" required>
+            <div class="error" data-for="nama_lengkap" style="display:none">Nama lengkap wajib diisi</div>
+          </div>
+
+          <div>
+            <label>Nama Panggilan</label>
+            <input name="nama_panggilan" type="text" placeholder="Nama panggilan">
+          </div>
+
+          <div>
+            <label>Tempat Lahir</label>
+            <input name="tempat_lahir" type="text" placeholder="Tempat lahir">
+          </div>
+
+          <div>
+            <label>Tanggal Lahir</label>
+            <input name="tanggal_lahir" type="date" placeholder="dd/mm/yyyy">
+          </div>
+
+          <div>
+            <label>Agama</label>
+            <select name="agama">
+              <option value="">Pilih agama</option>
+              <option>Islam</option>
+              <option>Kristen Katolik</option>
+              <option>Kristen protestan</option>
+              <option>Hindu</option>
+              <option>Budha</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Jenis Kelamin</label>
+            <select name="jenis_kelamin">
+              <option value="">Pilih jenis kelamin</option>
+              <option>Laki-laki</option>
+              <option>Perempuan</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label>Alamat Lengkap <span class="required">*</span></label>
+            <textarea name="alamat" placeholder="Alamat lengkap" required></textarea>
+            <div class="error" data-for="alamat" style="display:none">Alamat wajib diisi</div>
+          </div>
+
+          <div>
+            <label>Kecamatan</label>
+            <input name="kecamatan" type="text">
+          </div>
+
+          <div>
+            <label>Kabupaten</label>
+            <input name="kabupaten" type="text">
+          </div>
+
+          <div>
+            <label>Provinsi</label>
+            <input name="provinsi" type="text">
+          </div>
+
+          <div>
+            <label>Nomor Telepon</label>
+            <input name="telp" type="text" placeholder="08xx">
+          </div>
+
+          <div>
+            <label>Golongan Darah</label>
+            <select name="darah">
+              <option value="">Pilih golongan darah</option>
+              <option>A</option>
+              <option>B</option>
+              <option>AB</option>
+              <option>O</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Tinggi Badan (cm)</label>
+            <input name="tinggi" type="text">
+          </div>
+
+          <div>
+            <label>Berat Badan (kg)</label>
+            <input name="berat" type="text">
+          </div>
+
+          <div>
+            <label>Asal Sekolah</label>
+            <input name="asal_sekolah" type="text">
+          </div>
+
+          <div>
+            <label>Jurusan</label>
+            <input name="jurusan" type="text">
+          </div>
+
+          <div>
+            <label>Hobi</label>
+            <input name="hobi" type="text">
+          </div>
+
+          <div>
+            <label>Cita-cita</label>
+            <input name="cita" type="text">
+          </div>
+
+          <div>
+            <label>Anak ke-</label>
+            <input name="anak_ke" type="text">
+          </div>
+
+          <div>
+            <label>Jumlah Saudara</label>
+            <input name="jumlah_saudara" type="text">
+          </div>
+
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" id="prev1" disabled>&lt; Sebelumnya</button>
+          <div style="display:flex;gap:10px">
+            <button type="button" class="btn btn-primary" id="nextToParent">Selanjutnya &gt;</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step2" class="card" role="tabpanel" style="display:none;margin-top:14px">
+      <div class="section-title">Data Orang Tua</div>
+      <div class="section-desc">Silakan lengkapi data orang tua/wali siswa</div>
+
+      <form id="formParent">
+        <div class="grid">
+          <div>
+            <label>Nama Ayah <span class="required">*</span></label>
+            <input name="nama_ayah" type="text" placeholder="Nama ayah" required>
+            <div class="error" data-for="nama_ayah" style="display:none">Nama ayah wajib diisi</div>
+          </div>
+
+          <div>
+            <label>Pekerjaan Ayah</label>
+            <input name="pekerjaan_ayah" type="text">
+          </div>
+
+          <div>
+            <label>Nama Ibu <span class="required">*</span></label>
+            <input name="nama_ibu" type="text" required>
+            <div class="error" data-for="nama_ibu" style="display:none">Nama ibu wajib diisi</div>
+          </div>
+
+          <div>
+            <label>Pekerjaan Ibu</label>
+            <input name="pekerjaan_ibu" type="text">
+          </div>
+
+          <div>
+            <label>Penghasilan Ibu</label>
+            <input name="penghasilan_ibu" type="text" placeholder="Rp">
+          </div>
+
+           <div>
+            <label>Penghasilan Ayah</label>
+            <input name="penghasilan_ayah" type="text" placeholder="Rp">
+          </div>
+
+          <div>
+            <label>Nomor Telepon Orang Tua</label>
+            <input name="telp_orangtua" type="text" placeholder="08xx">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" id="backToStudent">&lt; Sebelumnya</button>
+          <div style="display:flex;gap:10px">
+            <button type="button" class="btn btn-save" id="saveData">Simpan Data</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    // Simple step manager
+    const stepText = document.getElementById('stepText');
+    const progressFill = document.getElementById('progressFill');
+    const progressPercent = document.getElementById('progressPercent');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const nextToParent = document.getElementById('nextToParent');
+    const backToStudent = document.getElementById('backToStudent');
+
+    function setProgress(p){
+      progressFill.style.width = p + '%';
+      progressPercent.textContent = p + '%';
+    }
+
+    // initial
+    setProgress(50);
+
+    nextToParent.addEventListener('click', ()=>{
+      // validate required fields in student form
+      const sform = document.getElementById('formStudent');
+      const requireds = sform.querySelectorAll('[required]');
+      let ok = true;
+      requireds.forEach(el=>{
+        const name = el.getAttribute('name');
+        const err = sform.querySelector(`.error[data-for=\"${name}\"]`);
+        if(!el.value.trim()){
+          ok = false;
+          if(err) err.style.display='block';
+        } else {
+          if(err) err.style.display='none';
+        }
+      });
+
+      if(!ok) return window.scrollTo({top:0,behavior:'smooth'});
+
+      // show step2
+      step1.style.display='none';
+      step2.style.display='block';
+      stepText.textContent = 'Halaman 2 dari 2 - Data Orang Tua';
+      setProgress(100);
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    backToStudent.addEventListener('click', ()=>{
+      step2.style.display='none';
+      step1.style.display='block';
+      stepText.textContent = 'Halaman 1 dari 2 - Data Siswa';
+      setProgress(50);
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    // on input hide error
+    document.querySelectorAll('input,textarea,select').forEach(el=>{
+      el.addEventListener('input', e=>{
+        const form = el.closest('form');
+        const err = form && form.querySelector(`.error[data-for=\"${el.name}\"]`);
+        if(err && el.value.trim()) err.style.display='none';
+      });
+    });
+
+    // Save data (final submit) -- here we just collect and show in console, replace with AJAX as needed
+    document.getElementById('saveData').addEventListener('click', ()=>{
+      const pform = document.getElementById('formParent');
+      const requireds = pform.querySelectorAll('[required]');
+      let ok = true;
+      requireds.forEach(el=>{
+        const name = el.getAttribute('name');
+        const err = pform.querySelector(`.error[data-for=\"${name}\"]`);
+        if(!el.value.trim()){
+          ok = false;
+          if(err) err.style.display='block';
+        } else {
+          if(err) err.style.display='none';
+        }
+      });
+      if(!ok) return window.scrollTo({top:0,behavior:'smooth'});
+
+      // gather data
+      const data = {};
+      document.querySelectorAll('form input, form select, form textarea').forEach(i=>{
+        if(i.name) data[i.name]=i.value;
+      });
+
+      // for demo, show result
+      console.log('Data pendaftaran:', data);
+      alert('Data berhasil disimpan (lihat console untuk detail).');
+
+      // Optionally: send data via fetch to server
+      // fetch('/submit', {method:'POST', body: JSON.stringify(data), headers:{'Content-Type':'application/json'}})
+    });
+
+  </script>
 </body>
 </html>
